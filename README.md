@@ -4,7 +4,7 @@ This repository is a Kokkos implementation of the Moment tensor potential in LAM
 
 ## Installation
 
-For this repository, we detail a very simple installation method. In the future, we may seek to push this implementation into the LAMMPS package.
+For this repository, we detail a very simple installation method. In the future, we may seek to push this implementation into the LAMMPS repository.
 
 1. Clone LAMMPS. This **requires version 24 March 2022 or newer.**
 
@@ -130,7 +130,7 @@ boundary        p p p
 atom_style      atomic
 
 lattice         bcc 5.28
-region          box block 0 {x} 0 {y} 0 {z} units lattice
+region          box block 0 3 0 3 0 3 units lattice
 create_box      1 box
 create_atoms    1 region box
 mass 1 39.0983
@@ -148,4 +148,10 @@ run 0
 velocity all create 200.0 12345 mom yes rot yes
 fix 1 all nve
 run 100
+```
+
+If you were to run this script on a single GPU, you could use the following command.
+
+```sh
+mpirun -np 1 /path/to/executable -in /path/to/script -k on g 1 -sf kk -pk kokkos newton on neigh half
 ```
