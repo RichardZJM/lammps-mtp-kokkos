@@ -6,7 +6,7 @@ This repository is a Kokkos implementation of the Moment Tensor Potential in LAM
 
 For this repository, we detail a very simple installation method. In the future, we may seek to push this implementation to the LAMMPS repository.
 
-1. Clone LAMMPS. This **requires version 24 March 2022 or newer.**
+1. Clone LAMMPS. This **requires version 24 March 2022 or newer. But for the KOKKOS version, not newer than 22 Jul 2025 - Update 1!**
 
 ```
 git clone -b stable https://github.com/lammps/lammps.git
